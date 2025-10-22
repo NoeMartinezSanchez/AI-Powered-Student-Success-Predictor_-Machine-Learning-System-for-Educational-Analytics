@@ -19,10 +19,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Estilos CSS universales compatibles con todos los navegadores y temas
 st.markdown("""
 <style>
-    /* ===== VARIABLES DE COLOR (FUNCIONAN EN CLARO/OSCURO) ===== */
+    /* ===== VARIABLES DE COLOR (TEMA CLARO COMPLETO) ===== */
     :root {
         --primary-color: #2563eb;       /* Azul profesional */
         --primary-light: #3b82f6;
@@ -30,107 +29,131 @@ st.markdown("""
         --success-color: #059669;       /* Verde éxito */
         --warning-color: #d97706;       /* Amarillo advertencia */
         --danger-color: #dc2626;        /* Rojo peligro */
-        --text-primary: #1f2937;        /* Texto oscuro */
-        --text-secondary: #4b5563;      /* Texto secundario */
+        --text-primary: #000000;        /* Texto NEGRO para máximo contraste */
+        --text-secondary: #374151;      /* Texto secundario */
         --text-light: #6b7280;          /* Texto claro */
-        --bg-light: #f8fafc;            /* Fondo claro */
-        --bg-card: #ffffff;             /* Fondo tarjetas */
-        --border-color: #e5e7eb;        /* Bordes suaves */
+        --bg-light: #ffffff;            /* Fondo BLANCO */
+        --bg-card: #ffffff;             /* Fondo tarjetas BLANCO */
+        --border-color: #d1d5db;        /* Bordes gris claro */
         --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
 
-    /* ===== CORRECCIÓN ESPECÍFICA PARA FORMULARIO EN SIDEBAR ===== */
-    /* Fondo del sidebar */
-    .css-1d391kg, .css-1y4p8pa {
-        background-color: var(--bg-card) !important;
-        border-right: 1px solid var(--border-color) !important;
+    /* ===== ESTILOS BASE - FONDO BLANCO EN TODA LA APP ===== */
+    .stApp {
+        background-color: var(--bg-light) !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    /* Título principal del formulario */
-    .css-1d391kg h3, .css-1y4p8pa h3 {
-        color: var(--primary-color) !important;
-        font-weight: 700 !important;
-        font-size: 1.3rem !important;
-        margin-bottom: 1rem !important;
+    /* ===== CORRECCIÓN DEFINITIVA PARA FORMULARIO ===== */
+    /* Fondo del sidebar BLANCO */
+    section[data-testid="stSidebar"] {
+        background-color: white !important;
     }
 
-    /* Subtítulos de secciones del formulario */
-    .subsection-header {
-        font-size: 1.1rem !important;
-        color: var(--primary-color) !important;
-        font-weight: 600 !important;
-        margin: 1rem 0 0.5rem 0 !important;
-        border-left: 3px solid var(--primary-light) !important;
-        padding-left: 0.5rem !important;
+    /* Todos los textos en sidebar en NEGRO */
+    .css-1d391kg, 
+    .css-1y4p8pa,
+    section[data-testid="stSidebar"] * {
+        color: #000000 !important;
+        background-color: white !important;
     }
 
-    /* LABELS DE TODOS LOS CONTROLES DEL FORMULARIO */
+    /* Labels de TODOS los controles - NEGRO Y NEGRITA */
     .stSelectbox label, 
     .stSlider label, 
     .stRadio label, 
     .stNumberInput label, 
     .stTextInput label,
     .stMultiSelect label,
-    .stTextArea label {
-        color: #1f2937 !important;
-        font-weight: 600 !important;
+    .stTextArea label,
+    div[data-testid="stForm"] label,
+    .stMarkdown label {
+        color: #000000 !important;
+        font-weight: 700 !important;
         font-size: 1rem !important;
     }
 
-    /* Texto dentro de los controles (valores seleccionados) */
-    .stSelectbox div[data-baseweb="select"] div,
+    /* Texto dentro de los controles - NEGRO */
+    .stSelectbox div,
     .stSlider div,
-    .stRadio label,
-    .stNumberInput input,
-    .stTextInput input {
-        color: #1f2937 !important;
-    }
-
-    /* Opciones de los dropdowns */
-    div[role="listbox"] li,
-    div[role="listbox"] div {
-        color: #1f2937 !important;
+    .stRadio div,
+    .stNumberInput div,
+    .stTextInput input,
+    .stTextInput div,
+    div[data-baseweb="select"] div,
+    div[role="listbox"] div,
+    div[role="option"] {
+        color: #000000 !important;
         background-color: white !important;
     }
 
-    /* Texto de ayuda (help text) */
-    .stTooltipIcon ~ div {
-        color: #6b7280 !important;
+    /* Títulos del formulario - AZUL PARA DESTACAR */
+    .css-1d391kg h3, 
+    .css-1y4p8pa h3,
+    .stMarkdown h3 {
+        color: var(--primary-color) !important;
+        font-weight: 800 !important;
+        font-size: 1.4rem !important;
+        margin-bottom: 1rem !important;
     }
 
-    /* Botón del formulario */
-    .stButton button {
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%) !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 8px !important;
-        padding: 0.75rem 2rem !important;
-        font-weight: 600 !important;
+    /* Subtítulos de secciones - AZUL */
+    .subsection-header {
         font-size: 1.1rem !important;
-        transition: all 0.2s ease !important;
-        width: 100% !important;
-        margin-top: 1rem !important;
+        color: var(--primary-color) !important;
+        font-weight: 700 !important;
+        margin: 1rem 0 0.5rem 0 !important;
+        border-left: 4px solid var(--primary-light) !important;
+        padding-left: 0.75rem !important;
+        background: rgba(37, 99, 235, 0.05) !important;
+        padding: 0.75rem !important;
+        border-radius: 8px !important;
     }
 
-    .stButton button:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4) !important;
-    }
-
-    /* Texto descriptivo general en el sidebar */
+    /* Texto descriptivo general - GRIS OSCURO */
     .css-1d391kg p, 
     .css-1y4p8pa p, 
     .css-1d391kg .stMarkdown, 
     .css-1y4p8pa .stMarkdown {
-        color: #4b5563 !important;
+        color: #374151 !important;
         font-size: 0.95rem !important;
         line-height: 1.5 !important;
     }
 
-    /* Asegurar que todo el texto en el sidebar sea visible */
-    .css-1d391kg *:not(button):not(svg):not(path),
-    .css-1y4p8pa *:not(button):not(svg):not(path) {
-        color: #1f2937 !important;
+    /* Botón del formulario - AZUL CON CONTRASTE */
+    .stButton button {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 10px !important;
+        padding: 0.85rem 2rem !important;
+        font-weight: 700 !important;
+        font-size: 1.1rem !important;
+        transition: all 0.3s ease !important;
+        width: 100% !important;
+        margin-top: 1.5rem !important;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+    }
+
+    .stButton button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5) !important;
+    }
+
+    /* ===== GARANTIZAR QUE TODO EL TEXTO SEA VISIBLE ===== */
+    /* Fuerza texto negro en toda la app */
+    .stMarkdown, 
+    .stText, 
+    .stWrite, 
+    .stAlert,
+    p, li, span, div:not(button):not(svg):not(path) {
+        color: var(--text-primary) !important;
+    }
+
+    /* Contenedores principales BLANCOS */
+    .main .block-container,
+    .stApp > div {
+        background-color: white !important;
     }
 
 </style>
@@ -915,6 +938,7 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
 
