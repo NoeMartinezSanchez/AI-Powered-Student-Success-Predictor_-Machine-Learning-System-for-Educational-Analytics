@@ -51,6 +51,35 @@ st.markdown("""
         border-right: 1px solid var(--border-color) !important;
     }
 
+    
+
+        /* ===== CORRECCIÓN COMPLETA PARA TODOS LOS TEXTOS DEL FORMULARIO ===== */
+    /* Labels de todos los controles */
+    div[data-testid="stForm"] label {
+        color: #1f2937 !important;
+        font-weight: 600 !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Texto dentro de los controles */
+    div[data-testid="stForm"] div,
+    div[data-testid="stForm"] span,
+    div[data-testid="stForm"] p {
+        color: #1f2937 !important;
+    }
+    
+    /* Controles específicos */
+    div[data-testid="stForm"] .stSelectbox > div,
+    div[data-testid="stForm"] .stSlider > div,
+    div[data-testid="stForm"] .stRadio > div,
+    div[data-testid="stForm"] .stNumberInput > div,
+    div[data-testid="stForm"] .stTextInput > div {
+        color: #1f2937 !important;
+        background-color: white !important;
+    }
+
+    
+
     /* Texto general del sidebar */
     .css-1d391kg p, .css-1y4p8pa p, 
     .css-1d391kg label, .css-1y4p8pa label,
@@ -1195,6 +1224,7 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
 
