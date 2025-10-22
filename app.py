@@ -45,9 +45,70 @@ st.markdown("""
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    .stMarkdown, .stText, .stWrite, .stAlert {
+    /* ===== CORRECCIÓN ESPECÍFICA PARA FORMULARIO EN SIDEBAR ===== */
+    .css-1d391kg, .css-1y4p8pa {
+        background-color: var(--bg-card) !important;
+        border-right: 1px solid var(--border-color) !important;
+    }
+
+    /* Texto general del sidebar */
+    .css-1d391kg p, .css-1y4p8pa p, 
+    .css-1d391kg label, .css-1y4p8pa label,
+    .css-1d391kg .stMarkdown, .css-1y4p8pa .stMarkdown,
+    .css-1d391kg .stRadio, .css-1y4p8pa .stRadio,
+    .css-1d391kg .stSelectbox, .css-1y4p8pa .stSelectbox,
+    .css-1d391kg .stSlider, .css-1y4p8pa .stSlider,
+    .css-1d391kg .stNumberInput, .css-1y4p8pa .stNumberInput,
+    .css-1d391kg .stTextInput, .css-1y4p8pa .stTextInput {
         color: var(--text-primary) !important;
-        line-height: 1.6;
+    }
+
+    /* Títulos y headers del sidebar */
+    .css-1d391kg h1, .css-1y4p8pa h1,
+    .css-1d391kg h2, .css-1y4p8pa h2,
+    .css-1d391kg h3, .css-1y4p8pa h3,
+    .css-1d391kg h4, .css-1y4p8pa h4,
+    .css-1d391kg h5, .css-1y4p8pa h5,
+    .css-1d391kg h6, .css-1y4p8pa h6 {
+        color: var(--text-primary) !important;
+    }
+
+    /* Labels de formularios específicos */
+    .stSelectbox label, .stSlider label, .stRadio label, 
+    .stNumberInput label, .stTextInput label {
+        color: var(--text-primary) !important;
+        font-weight: 600 !important;
+    }
+
+    /* Texto dentro de los controles del formulario */
+    .stSelectbox div[data-baseweb="select"] > div,
+    .stSlider div,
+    .stRadio div,
+    .stNumberInput div,
+    .stTextInput div {
+        color: var(--text-primary) !important;
+        background-color: var(--bg-card) !important;
+    }
+
+    /* Placeholders */
+    .stTextInput input::placeholder {
+        color: var(--text-light) !important;
+    }
+
+    /* Botones del formulario */
+    .stButton button {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 0.5rem 1.5rem !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .stButton button:hover {
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
     }
 
     /* ===== HEADERS Y TÍTULOS ===== */
@@ -243,35 +304,6 @@ st.markdown("""
         color: var(--text-primary) !important;
     }
 
-    /* ===== SIDEBAR (COMPATIBLE CON MODO CLARO/OSCURO) ===== */
-    .css-1d391kg, .css-1y4p8pa {
-        background-color: var(--bg-card) !important;
-        border-right: 1px solid var(--border-color) !important;
-    }
-
-    .css-1d391kg p, .css-1y4p8pa p, 
-    .css-1d391kg label, .css-1y4p8pa label,
-    .css-1d391kg .stMarkdown, .css-1y4p8pa .stMarkdown,
-    .css-1d391kg .stRadio, .css-1y4p8pa .stRadio,
-    .css-1d391kg .stSelectbox, .css-1y4p8pa .stSelectbox {
-        color: var(--text-primary) !important;
-    }
-
-    /* ===== FORMULARIOS Y CONTROLES ===== */
-    .stSelectbox, .stSlider, .stRadio, .stNumberInput, .stTextInput {
-        background-color: var(--bg-card) !important;
-        color: var(--text-primary) !important;
-    }
-
-    .stSelectbox div, .stSlider div, .stRadio div, .stNumberInput div {
-        background-color: var(--bg-card) !important;
-        color: var(--text-primary) !important;
-    }
-
-    .stSelectbox label, .stSlider label, .stRadio label, .stNumberInput label {
-        color: var(--text-primary) !important;
-    }
-
     /* ===== EFECTOS HOVER ===== */
     .metric-card:hover {
         transform: translateY(-2px);
@@ -297,22 +329,6 @@ st.markdown("""
         .metric-card {
             padding: 1rem;
         }
-    }
-
-    /* ===== ESTILOS ESPECÍFICOS PARA STREAMLIT ===== */
-    .stButton button {
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        padding: 0.5rem 1.5rem;
-        font-weight: 600;
-        transition: all 0.2s ease;
-    }
-
-    .stButton button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
     }
 
     /* ===== SCROLLBAR PERSONALIZADO ===== */
@@ -395,11 +411,6 @@ st.markdown("""
     }
 
     strong, b {
-        color: var(--text-primary) !important;
-    }
-
-    /* ===== CORRECCIÓN ESPECÍFICA PARA TEXTO EN ELEMENTOS INTERACTIVOS ===== */
-    .st-bb, .st-bc, .st-bd, .st-be, .st-bf, .st-bg, .st-bh, .st-bi, .st-bj, .st-bk, .st-bl, .st-bm, .st-bn, .st-bo, .st-bp, .st-bq, .st-br, .st-bs, .st-bt, .st-bu, .st-bv, .st-bw, .st-bx, .st-by, .st-bz, .st-c0, .st-c1, .st-c2, .st-c3, .st-c4, .st-c5, .st-c6, .st-c7, .st-c8, .st-c9, .st-ca, .st-cb, .st-cc, .st-cd, .st-ce, .st-cf, .st-cg, .st-ch, .st-ci, .st-cj, .st-ck, .st-cl, .st-cm, .st-cn, .st-co, .st-cp, .st-cq, .st-cr, .st-cs, .st-ct, .st-cu, .st-cv, .st-cw, .st-cx, .st-cy, .st-cz, .st-d0, .st-d1, .st-d2, .st-d3, .st-d4, .st-d5, .st-d6, .st-d7, .st-d8, .st-d9, .st-da, .st-db, .st-dc, .st-dd, .st-de, .st-df, .st-dg, .st-dh, .st-di, .st-dj, .st-dk, .st-dl, .st-dm, .st-dn, .st-do, .st-dp, .st-dq, .st-dr, .st-ds, .st-dt, .st-du, .st-dv, .st-dw, .st-dx, .st-dy, .st-dz, .st-e0, .st-e1, .st-e2, .st-e3, .st-e4, .st-e5, .st-e6, .st-e7, .st-e8, .st-e9, .st-ea, .st-eb, .st-ec, .st-ed, .st-ee, .st-ef, .st-eg, .st-eh, .st-ei, .st-ej, .st-ek, .st-el, .st-em, .st-en, .st-eo, .st-ep, .st-eq, .st-er, .st-es, .st-et, .st-eu, .st-ev, .st-ew, .st-ex, .st-ey, .st-ez, .st-f0, .st-f1, .st-f2, .st-f3, .st-f4, .st-f5, .st-f6, .st-f7, .st-f8, .st-f9, .st-fa, .st-fb, .st-fc, .st-fd, .st-fe, .st-ff, .st-fg, .st-fh, .st-fi, .st-fj, .st-fk, .st-fl, .st-fm, .st-fn, .st-fo, .st-fp, .st-fq, .st-fr, .st-fs, .st-ft, .st-fu, .st-fv, .st-fw, .st-fx, .st-fy, .st-fz, .st-g0, .st-g1, .st-g2, .st-g3, .st-g4, .st-g5, .st-g6, .st-g7, .st-g8, .st-g9, .st-ga, .st-gb, .st-gc, .st-gd, .st-ge, .st-gf, .st-gg, .st-gh, .st-gi, .st-gj, .st-gk, .st-gl, .st-gm, .st-gn, .st-go, .st-gp, .st-gq, .st-gr, .st-gs, .st-gt, .st-gu, .st-gv, .st-gw, .st-gx, .st-gy, .st-gz, .st-h0, .st-h1, .st-h2, .st-h3, .st-h4, .st-h5, .st-h6, .st-h7, .st-h8, .st-h9, .st-ha, .st-hb, .st-hc, .st-hd, .st-he, .st-hf, .st-hg, .st-hh, .st-hi, .st-hj, .st-hk, .st-hl, .st-hm, .st-hn, .st-ho, .st-hp, .st-hq, .st-hr, .st-hs, .st-ht, .st-hu, .st-hv, .st-hw, .st-hx, .st-hy, .st-hz, .st-i0, .st-i1, .st-i2, .st-i3, .st-i4, .st-i5, .st-i6, .st-i7, .st-i8, .st-i9, .st-ia, .st-ib, .st-ic, .st-id, .st-ie, .st-if, .st-ig, .st-ih, .st-ii, .st-ij, .st-ik, .st-il, .st-im, .st-in, .st-io, .st-ip, .st-iq, .st-ir, .st-is, .st-it, .st-iu, .st-iv, .st-iw, .st-ix, .st-iy, .st-iz, .st-j0, .st-j1, .st-j2, .st-j3, .st-j4, .st-j5, .st-j6, .st-j7, .st-j8, .st-j9, .st-ja, .st-jb, .st-jc, .st-jd, .st-je, .st-jf, .st-jg, .st-jh, .st-ji, .st-jj, .st-jk, .st-jl, .st-jm, .st-jn, .st-jo, .st-jp, .st-jq, .st-jr, .st-js, .st-jt, .st-ju, .st-jv, .st-jw, .st-jx, .st-jy, .st-jz, .st-k0, .st-k1, .st-k2, .st-k3, .st-k4, .st-k5, .st-k6, .st-k7, .st-k8, .st-k9, .st-ka, .st-kb, .st-kc, .st-kd, .st-ke, .st-kf, .st-kg, .st-kh, .st-ki, .st-kj, .st-kk, .st-kl, .st-km, .st-kn, .st-ko, .st-kp, .st-kq, .st-kr, .st-ks, .st-kt, .st-ku, .st-kv, .st-kw, .st-kx, .st-ky, .st-kz, .st-l0, .st-l1, .st-l2, .st-l3, .st-l4, .st-l5, .st-l6, .st-l7, .st-l8, .st-l9, .st-la, .st-lb, .st-lc, .st-ld, .st-le, .st-lf, .st-lg, .st-lh, .st-li, .st-lj, .st-lk, .st-ll, .st-lm, .st-ln, .st-lo, .st-lp, .st-lq, .st-lr, .st-ls, .st-lt, .st-lu, .st-lv, .st-lw, .st-lx, .st-ly, .st-lz, .st-m0, .st-m1, .st-m2, .st-m3, .st-m4, .st-m5, .st-m6, .st-m7, .st-m8, .st-m9, .st-ma, .st-mb, .st-mc, .st-md, .st-me, .st-mf, .st-mg, .st-mh, .st-mi, .st-mj, .st-mk, .st-ml, .st-mm, .st-mn, .st-mo, .st-mp, .st-mq, .st-mr, .st-ms, .st-mt, .st-mu, .st-mv, .st-mw, .st-mx, .st-my, .st-mz, .st-n0, .st-n1, .st-n2, .st-n3, .st-n4, .st-n5, .st-n6, .st-n7, .st-n8, .st-n9, .st-na, .st-nb, .st-nc, .st-nd, .st-ne, .st-nf, .st-ng, .st-nh, .st-ni, .st-nj, .st-nk, .st-nl, .st-nm, .st-nn, .st-no, .st-np, .st-nq, .st-nr, .st-ns, .st-nt, .st-nu, .st-nv, .st-nw, .st-nx, .st-ny, .st-nz, .st-o0, .st-o1, .st-o2, .st-o3, .st-o4, .st-o5, .st-o6, .st-o7, .st-o8, .st-o9, .st-oa, .st-ob, .st-oc, .st-od, .st-oe, .st-of, .st-og, .st-oh, .st-oi, .st-oj, .st-ok, .st-ol, .st-om, .st-on, .st-oo, .st-op, .st-oq, .st-or, .st-os, .st-ot, .st-ou, .st-ov, .st-ow, .st-ox, .st-oy, .st-oz, .st-p0, .st-p1, .st-p2, .st-p3, .st-p4, .st-p5, .st-p6, .st-p7, .st-p8, .st-p9, .st-pa, .st-pb, .st-pc, .st-pd, .st-pe, .st-pf, .st-pg, .st-ph, .st-pi, .st-pj, .st-pk, .st-pl, .st-pm, .st-pn, .st-po, .st-pp, .st-pq, .st-pr, .st-ps, .st-pt, .st-pu, .st-pv, .st-pw, .st-px, .st-py, .st-pz, .st-q0, .st-q1, .st-q2, .st-q3, .st-q4, .st-q5, .st-q6, .st-q7, .st-q8, .st-q9, .st-qa, .st-qb, .st-qc, .st-qd, .st-qe, .st-qf, .st-qg, .st-qh, .st-qi, .st-qj, .st-qk, .st-ql, .st-qm, .st-qn, .st-qo, .st-qp, .st-qq, .st-qr, .st-qs, .st-qt, .st-qu, .st-qv, .st-qw, .st-qx, .st-qy, .st-qz, .st-r0, .st-r1, .st-r2, .st-r3, .st-r4, .st-r5, .st-r6, .st-r7, .st-r8, .st-r9, .st-ra, .st-rb, .st-rc, .st-rd, .st-re, .st-rf, .st-rg, .st-rh, .st-ri, .st-rj, .st-rk, .st-rl, .st-rm, .st-rn, .st-ro, .st-rp, .st-rq, .st-rr, .st-rs, .st-rt, .st-ru, .st-rv, .st-rw, .st-rx, .st-ry, .st-rz, .st-s0, .st-s1, .st-s2, .st-s3, .st-s4, .st-s5, .st-s6, .st-s7, .st-s8, .st-s9, .st-sa, .st-sb, .st-sc, .st-sd, .st-se, .st-sf, .st-sg, .st-sh, .st-si, .st-sj, .st-sk, .st-sl, .st-sm, .st-sn, .st-so, .st-sp, .st-sq, .st-sr, .st-ss, .st-st, .st-su, .st-sv, .st-sw, .st-sx, .st-sy, .st-sz, .st-t0, .st-t1, .st-t2, .st-t3, .st-t4, .st-t5, .st-t6, .st-t7, .st-t8, .st-t9, .st-ta, .st-tb, .st-tc, .st-td, .st-te, .st-tf, .st-tg, .st-th, .st-ti, .st-tj, .st-tk, .st-tl, .st-tm, .st-tn, .st-to, .st-tp, .st-tq, .st-tr, .st-ts, .st-tt, .st-tu, .st-tv, .st-tw, .st-tx, .st-ty, .st-tz, .st-u0, .st-u1, .st-u2, .st-u3, .st-u4, .st-u5, .st-u6, .st-u7, .st-u8, .st-u9, .st-ua, .st-ub, .st-uc, .st-ud, .st-ue, .st-uf, .st-ug, .st-uh, .st-ui, .st-uj, .st-uk, .st-ul, .st-um, .st-un, .st-u0, .st-u1, .st-u2, .st-u3, .st-u4, .st-u5, .st-u6, .st-u7, .st-u8, .st-u9, .st-ua, .st-ub, .st-uc, .st-ud, .st-ue, .st-uf, .st-ug, .st-uh, .st-ui, .st-uj, .st-uk, .st-ul, .st-um, .st-un, .st-uo, .st-up, .st-uq, .st-ur, .st-us, .st-ut, .st-uu, .st-uv, .st-uw, .st-ux, .st-uy, .st-uz, .st-v0, .st-v1, .st-v2, .st-v3, .st-v4, .st-v5, .st-v6, .st-v7, .st-v8, .st-v9, .st-va, .st-vb, .st-vc, .st-vd, .st-ve, .st-vf, .st-vg, .st-vh, .st-vi, .st-vj, .st-vk, .st-vl, .st-vm, .st-vn, .st-vo, .st-vp, .st-vq, .st-vr, .st-vs, .st-vt, .st-vu, .st-vv, .st-vw, .st-vx, .st-vy, .st-vz, .st-w0, .st-w1, .st-w2, .st-w3, .st-w4, .st-w5, .st-w6, .st-w7, .st-w8, .st-w9, .st-wa, .st-wb, .st-wc, .st-wd, .st-we, .st-wf, .st-wg, .st-wh, .st-wi, .st-wj, .st-wk, .st-wl, .st-wm, .st-wn, .st-wo, .st-wp, .st-wq, .st-wr, .st-ws, .st-wt, .st-wu, .st-wv, .st-ww, .st-wx, .st-wy, .st-wz, .st-x0, .st-x1, .st-x2, .st-x3, .st-x4, .st-x5, .st-x6, .st-x7, .st-x8, .st-x9, .st-xa, .st-xb, .st-xc, .st-xd, .st-xe, .st-xf, .st-xg, .st-xh, .st-xi, .st-xj, .st-xk, .st-xl, .st-xm, .st-xn, .st-xo, .st-xp, .st-xq, .st-xr, .st-xs, .st-xt, .st-xu, .st-xv, .st-xw, .st-xx, .st-xy, .st-xz, .st-y0, .st-y1, .st-y2, .st-y3, .st-y4, .st-y5, .st-y6, .st-y7, .st-y8, .st-y9, .st-ya, .st-yb, .st-yc, .st-yd, .st-ye, .st-yf, .st-yg, .st-yh, .st-yi, .st-yj, .st-yk, .st-yl, .st-ym, .st-yn, .st-yo, .st-yp, .st-yq, .st-yr, .st-ys, .st-yt, .st-yu, .st-yv, .st-yw, .st-yx, .st-yy, .st-yz, .st-z0, .st-z1, .st-z2, .st-z3, .st-z4, .st-z5, .st-z6, .st-z7, .st-z8, .st-z9, .st-za, .st-zb, .st-zc, .st-zd, .st-ze, .st-zf, .st-zg, .st-zh, .st-zi, .st-zj, .st-zk, .st-zl, .st-zm, .st-zn, .st-zo, .st-zp, .st-zq, .st-zr, .st-zs, .st-zt, .st-zu, .st-zv, .st-zw, .st-zx, .st-zy, .st-zz {
         color: var(--text-primary) !important;
     }
 
@@ -513,38 +524,38 @@ def generar_calificacion_final(row):
     return round(calificacion_final, 1)
 
 def crear_formulario():
-    """Crear formulario interactivo completo - VERSIÓN CORREGIDA"""
+    """Crear formulario interactivo completo - VERSIÓN MEJORADA"""
     with st.sidebar:
-        st.markdown("### FORMULARIO")
+        st.markdown("### 📝 FORMULARIO DEL ESTUDIANTE")
+        st.markdown("Complete la información para obtener su análisis personalizado")
         
         with st.form("formulario_estudiante"):
             # ===== SECCIÓN 1: DATOS DEMOGRÁFICOS =====
-            st.markdown('<div class="section-header">👤 Datos demográficos</div>', unsafe_allow_html=True)
+            st.markdown('<div class="subsection-header">👤 Datos demográficos</div>', unsafe_allow_html=True)
             
             col1, col2 = st.columns(2)
             with col1:
-                edad = st.slider("Edad", 14, 70, 25)
+                edad = st.slider("Edad", 14, 70, 25, help="Edad actual del estudiante")
             with col2:
                 sexo = st.selectbox("Sexo", options=list(MAPEOS['sexo'].keys()))
             
             genero = st.selectbox("Género", options=list(MAPEOS['genero'].keys()))
             situacion_conyugal = st.selectbox("Situación conyugal", options=list(MAPEOS['situacion_conyugal'].keys()))
             
-            # ===== SECCIÓN 2: SALUD Y ORIGEN ===== (CORREGIDO)
-            st.markdown('<div class="section-header">🏥 Salud y origen</div>', unsafe_allow_html=True)
+            # ===== SECCIÓN 2: SALUD Y ORIGEN =====
+            st.markdown('<div class="subsection-header">🏥 Salud y origen</div>', unsafe_allow_html=True)
             
-            # SOLUCIÓN: Usar selectbox en lugar de radio para mejor compatibilidad
             discapacidad = st.selectbox("¿Tiene discapacidad?", options=list(MAPEOS['si_no'].keys()))
             indigena = st.selectbox("¿Se considera indígena?", options=list(MAPEOS['si_no'].keys()))
             
-            # ===== SECCIÓN 3: SITUACIÓN ECONÓMICA ===== (CORREGIDO)
-            st.markdown('<div class="section-header">💰 Situación económica</div>', unsafe_allow_html=True)
+            # ===== SECCIÓN 3: SITUACIÓN ECONÓMICA =====
+            st.markdown('<div class="subsection-header">💰 Situación económica</div>', unsafe_allow_html=True)
             
-            # SOLUCIÓN: Selectbox en lugar de radio
             trabaja = st.selectbox("¿Trabaja actualmente?", options=list(MAPEOS['si_no'].keys()))
             
             if trabaja == 'Sí':
-                horas_trabajo = st.slider("Horas de trabajo semanales", 0, 60, 40)
+                horas_trabajo = st.slider("Horas de trabajo semanales", 0, 60, 40, 
+                                        help="Número de horas que trabaja por semana")
             else:
                 horas_trabajo = 0
             
@@ -552,14 +563,13 @@ def crear_formulario():
                 "Ingresos mensuales del hogar (MXN)",
                 options=[3000, 7500, 12500, 17500, 22500, 30000],
                 value=12500,
-                format_func=lambda x: f"${x:,.0f}"
+                format_func=lambda x: f"${x:,.0f} MXN"
             )
             
-            # SOLUCIÓN: Selectbox en lugar de radio
             beca = st.selectbox("¿Recibe alguna beca?", options=list(MAPEOS['si_no'].keys()))
             
             # ===== SECCIÓN 4: TRAYECTORIA ACADÉMICA =====
-            st.markdown('<div class="section-header">📚 Trayectoria académica</div>', unsafe_allow_html=True)
+            st.markdown('<div class="subsection-header">📚 Trayectoria académica</div>', unsafe_allow_html=True)
             
             col5, col6 = st.columns(2)
             with col5:
@@ -567,18 +577,19 @@ def crear_formulario():
             with col6:
                 tipo_secundaria = st.selectbox("Tipo de secundaria", options=list(MAPEOS['tipo_secundaria'].keys()))
             
-            # SOLUCIÓN: Selectbox en lugar de radio
             estudios_previos = st.selectbox("¿Tiene estudios previos de bachillerato?", options=list(MAPEOS['si_no'].keys()))
             cursos_linea = st.selectbox("¿Ha tomado cursos en línea antes?", options=list(MAPEOS['si_no'].keys()))
             
             # ===== SECCIÓN 5: HABILIDADES Y RECURSOS =====
-            st.markdown('<div class="section-header">💻 Habilidades y recursos</div>', unsafe_allow_html=True)
+            st.markdown('<div class="subsection-header">💻 Habilidades y recursos</div>', unsafe_allow_html=True)
             
             col7, col8 = st.columns(2)
             with col7:
-                recursos_tec = st.slider("Recursos tecnológicos", 1, 5, 3)
+                recursos_tec = st.slider("Recursos tecnológicos", 1, 5, 3, 
+                                       help="Nivel de acceso a tecnología (1=bajo, 5=alto)")
             with col8:
-                responsabilidades = st.slider("Responsabilidades", 1, 7, 3)
+                responsabilidades = st.slider("Responsabilidades", 1, 7, 3,
+                                            help="Número de responsabilidades adicionales")
             
             comunicacion = st.select_slider("Habilidad de comunicación", 
                                           options=list(MAPEOS['calificacion'].keys()), value="Bueno")
@@ -600,7 +611,7 @@ def crear_formulario():
                 edad_categoria = '45+'
             
             # Botón de enviar
-            submitted = st.form_submit_button("🎓 Predecir con Random Forest + Clusters", use_container_width=True)
+            submitted = st.form_submit_button("🎓 Obtener Análisis Completo", use_container_width=True)
             
             datos = {
                 'edad': edad, 'sexo': sexo, 'genero': genero, 'situacion_conyugal': situacion_conyugal,
@@ -1184,5 +1195,6 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
