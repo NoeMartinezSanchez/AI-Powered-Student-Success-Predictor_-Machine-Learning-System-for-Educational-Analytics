@@ -1008,7 +1008,7 @@ def main():
         with col1:
             st.markdown("### Visualización 2D de Clusters (PCA)")
             try:
-                st.image("clusters_PCA_2D.png", use_column_width=True, 
+                st.image("images/clusters_PCA_2D.png", use_column_width=True, 
                         caption="Distribución de estudiantes en los 4 clusters identificados")
             except FileNotFoundError:
                 st.warning("⚠️ No se encontró la imagen 'clusters_PCA_2D.png'. Asegúrate de que esté en el mismo directorio.")
@@ -1098,4 +1098,5 @@ def main():
         """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
+
     main()
