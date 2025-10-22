@@ -136,7 +136,7 @@ st.markdown("""
 
     .subsection-header {
         font-size: 1.1rem;
-        color: var(--text-primary) !important;
+        color: var(--primary-color) !important;
         font-weight: 600;
         margin: 1rem 0 0.5rem 0;
     }
@@ -1195,6 +1195,7 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
 
