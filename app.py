@@ -34,417 +34,108 @@ st.markdown("""
         --text-secondary: #4b5563;      /* Texto secundario */
         --text-light: #6b7280;          /* Texto claro */
         --bg-light: #f8fafc;            /* Fondo claro */
-        --bg-card: #f8fafc;             /* Fondo tarjetas */
+        --bg-card: #ffffff;             /* Fondo tarjetas */
         --border-color: #e5e7eb;        /* Bordes suaves */
         --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
 
-    /* ===== ESTILOS BASE UNIVERSALES ===== */
-    .stApp {
-        background-color: var(--bg-light) !important;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
     /* ===== CORRECCIÓN ESPECÍFICA PARA FORMULARIO EN SIDEBAR ===== */
+    /* Fondo del sidebar */
     .css-1d391kg, .css-1y4p8pa {
         background-color: var(--bg-card) !important;
         border-right: 1px solid var(--border-color) !important;
     }
 
-    
+    /* Título principal del formulario */
+    .css-1d391kg h3, .css-1y4p8pa h3 {
+        color: var(--primary-color) !important;
+        font-weight: 700 !important;
+        font-size: 1.3rem !important;
+        margin-bottom: 1rem !important;
+    }
 
-        /* ===== CORRECCIÓN COMPLETA PARA TODOS LOS TEXTOS DEL FORMULARIO ===== */
-    /* Labels de todos los controles */
-    div[data-testid="stForm"] label {
+    /* Subtítulos de secciones del formulario */
+    .subsection-header {
+        font-size: 1.1rem !important;
+        color: var(--primary-color) !important;
+        font-weight: 600 !important;
+        margin: 1rem 0 0.5rem 0 !important;
+        border-left: 3px solid var(--primary-light) !important;
+        padding-left: 0.5rem !important;
+    }
+
+    /* LABELS DE TODOS LOS CONTROLES DEL FORMULARIO */
+    .stSelectbox label, 
+    .stSlider label, 
+    .stRadio label, 
+    .stNumberInput label, 
+    .stTextInput label,
+    .stMultiSelect label,
+    .stTextArea label {
         color: #1f2937 !important;
         font-weight: 600 !important;
         font-size: 1rem !important;
     }
-    
-    /* Texto dentro de los controles */
-    div[data-testid="stForm"] div,
-    div[data-testid="stForm"] span,
-    div[data-testid="stForm"] p {
+
+    /* Texto dentro de los controles (valores seleccionados) */
+    .stSelectbox div[data-baseweb="select"] div,
+    .stSlider div,
+    .stRadio label,
+    .stNumberInput input,
+    .stTextInput input {
         color: #1f2937 !important;
     }
-    
-    /* Controles específicos */
-    div[data-testid="stForm"] .stSelectbox > div,
-    div[data-testid="stForm"] .stSlider > div,
-    div[data-testid="stForm"] .stRadio > div,
-    div[data-testid="stForm"] .stNumberInput > div,
-    div[data-testid="stForm"] .stTextInput > div {
+
+    /* Opciones de los dropdowns */
+    div[role="listbox"] li,
+    div[role="listbox"] div {
         color: #1f2937 !important;
         background-color: white !important;
     }
 
-    
-
-    /* Texto general del sidebar */
-    .css-1d391kg p, .css-1y4p8pa p, 
-    .css-1d391kg label, .css-1y4p8pa label,
-    .css-1d391kg .stMarkdown, .css-1y4p8pa .stMarkdown,
-    .css-1d391kg .stRadio, .css-1y4p8pa .stRadio,
-    .css-1d391kg .stSelectbox, .css-1y4p8pa .stSelectbox,
-    .css-1d391kg .stSlider, .css-1y4p8pa .stSlider,
-    .css-1d391kg .stNumberInput, .css-1y4p8pa .stNumberInput,
-    .css-1d391kg .stTextInput, .css-1y4p8pa .stTextInput {
-        color: var(--text-primary) !important;
+    /* Texto de ayuda (help text) */
+    .stTooltipIcon ~ div {
+        color: #6b7280 !important;
     }
 
-    /* Títulos y headers del sidebar */
-    .css-1d391kg h1, .css-1y4p8pa h1,
-    .css-1d391kg h2, .css-1y4p8pa h2,
-    .css-1d391kg h3, .css-1y4p8pa h3,
-    .css-1d391kg h4, .css-1y4p8pa h4,
-    .css-1d391kg h5, .css-1y4p8pa h5,
-    .css-1d391kg h6, .css-1y4p8pa h6 {
-        color: var(--text-primary) !important;
-    }
-
-    /* Labels de formularios específicos */
-    .stSelectbox label, .stSlider label, .stRadio label, 
-    .stNumberInput label, .stTextInput label {
-        color: var(--text-primary) !important;
-        font-weight: 600 !important;
-    }
-
-    /* Texto dentro de los controles del formulario */
-    .stSelectbox div[data-baseweb="select"] > div,
-    .stSlider div,
-    .stRadio div,
-    .stNumberInput div,
-    .stTextInput div {
-        color: var(--text-primary) !important;
-        background-color: var(--bg-card) !important;
-    }
-
-    /* Placeholders */
-    .stTextInput input::placeholder {
-        color: var(--text-light) !important;
-    }
-
-    /* Botones del formulario */
+    /* Botón del formulario */
     .stButton button {
         background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%) !important;
         color: white !important;
         border: none !important;
         border-radius: 8px !important;
-        padding: 0.5rem 1.5rem !important;
+        padding: 0.75rem 2rem !important;
         font-weight: 600 !important;
+        font-size: 1.1rem !important;
         transition: all 0.2s ease !important;
+        width: 100% !important;
+        margin-top: 1rem !important;
     }
 
     .stButton button:hover {
-        transform: translateY(-1px) !important;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4) !important;
     }
 
-    /* ===== HEADERS Y TÍTULOS ===== */
-    .main-header {
-        font-size: 2.5rem;
-        color: var(--primary-color) !important;
-        text-align: center;
-        margin-bottom: 1.5rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        padding: 1rem;
+    /* Texto descriptivo general en el sidebar */
+    .css-1d391kg p, 
+    .css-1y4p8pa p, 
+    .css-1d391kg .stMarkdown, 
+    .css-1y4p8pa .stMarkdown {
+        color: #4b5563 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
     }
 
-    .section-header {
-        font-size: 1.4rem;
-        color: var(--primary-color) !important;
-        border-bottom: 2px solid var(--primary-light);
-        padding-bottom: 0.5rem;
-        margin: 1.5rem 0 1rem 0;
-        font-weight: 600;
-    }
-
-    .subsection-header {
-        font-size: 1.1rem;
-        color: var(--primary-color) !important;
-        font-weight: 600;
-        margin: 1rem 0 0.5rem 0;
-    }
-
-    /* ===== COMPONENTES DE LA APLICACIÓN ===== */
-    .metric-card {
-        background: var(--bg-card) !important;
-        border: 1px solid var(--border-color) !important;
-        padding: 1.5rem;
-        border-radius: 12px;
-        border-left: 4px solid var(--primary-color);
-        margin-bottom: 1rem;
-        box-shadow: var(--shadow);
-        color: var(--text-primary) !important;
-    }
-
-    .recommendation-box {
-        background: var(--bg-card) !important;
-        border: 1px solid var(--border-color) !important;
-        padding: 1.5rem;
-        border-radius: 12px;
-        border-left: 4px solid var(--success-color);
-        margin: 1rem 0;
-        box-shadow: var(--shadow);
-        color: var(--text-primary) !important;
-    }
-
-    .risk-high { 
-        background: #fef2f2 !important;
-        border: 1px solid #fecaca !important;
-        border-left: 4px solid var(--danger-color) !important;
-        color: var(--text-primary) !important;
-    }
-
-    .risk-medium { 
-        background: #fffbeb !important;
-        border: 1px solid #fed7aa !important;
-        border-left: 4px solid var(--warning-color) !important;
-        color: var(--text-primary) !important;
-    }
-
-    .risk-low { 
-        background: #f0fdf4 !important;
-        border: 1px solid #bbf7d0 !important;
-        border-left: 4px solid var(--success-color) !important;
-        color: var(--text-primary) !important;
-    }
-
-    /* ===== BADGES Y ELEMENTOS ESPECIALES ===== */
-    .rf-badge {
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-        color: white !important;
-        padding: 0.5rem 1.2rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        box-shadow: var(--shadow);
-        border: none;
-        display: inline-block;
-        margin: 0.5rem 0;
-    }
-
-    .cluster-badge {
-        background: linear-gradient(135deg, #2196F3 0%, #03A9F4 100%);
-        color: white !important;
-        padding: 0.5rem 1.2rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        box-shadow: var(--shadow);
-        border: none;
-        display: inline-block;
-        margin: 0.5rem 0;
-    }
-
-    .feature-importance-box {
-        background: var(--bg-card) !important;
-        border: 1px solid var(--border-color) !important;
-        padding: 1.5rem;
-        border-radius: 12px;
-        margin: 1rem 0;
-        box-shadow: var(--shadow);
-        color: var(--text-primary) !important;
-    }
-
-    .cluster-info-box {
-        background: rgba(33, 150, 243, 0.08) !important;
-        border: 1px solid #2196F3 !important;
-        padding: 1.5rem;
-        border-radius: 12px;
-        border-left: 4px solid #2196F3 !important;
-        margin: 1rem 0;
-        box-shadow: var(--shadow);
-        color: var(--text-primary) !important;
-    }
-
-    .cluster-detail-box {
-        background: rgba(33, 150, 243, 0.05) !important;
-        border: 1px solid #2196F3 !important;
-        padding: 1.2rem;
-        border-radius: 10px;
-        margin: 1rem 0;
-        box-shadow: var(--shadow);
-        color: var(--text-primary) !important;
-    }
-
-    /* ===== GARANTIZAR LEGIBILIDAD DEL TEXTO ===== */
-    .recommendation-box h1,
-    .recommendation-box h2,
-    .recommendation-box h3,
-    .recommendation-box h4,
-    .recommendation-box h5,
-    .recommendation-box h6,
-    .recommendation-box p,
-    .recommendation-box li,
-    .recommendation-box span,
-    .recommendation-box div,
-    .recommendation-box strong,
-    .recommendation-box b {
-        color: var(--text-primary) !important;
-    }
-
-    .feature-importance-box h1,
-    .feature-importance-box h2,
-    .feature-importance-box h3,
-    .feature-importance-box h4,
-    .feature-importance-box h5,
-    .feature-importance-box h6,
-    .feature-importance-box p,
-    .feature-importance-box li,
-    .feature-importance-box span,
-    .feature-importance-box div,
-    .feature-importance-box strong,
-    .feature-importance-box b {
-        color: var(--text-primary) !important;
-    }
-
-    .cluster-info-box h1,
-    .cluster-info-box h2,
-    .cluster-info-box h3,
-    .cluster-info-box h4,
-    .cluster-info-box h5,
-    .cluster-info-box h6,
-    .cluster-info-box p,
-    .cluster-info-box li,
-    .cluster-info-box span,
-    .cluster-info-box div,
-    .cluster-info-box strong,
-    .cluster-info-box b {
-        color: var(--text-primary) !important;
-    }
-
-    .cluster-detail-box h1,
-    .cluster-detail-box h2,
-    .cluster-detail-box h3,
-    .cluster-detail-box h4,
-    .cluster-detail-box h5,
-    .cluster-detail-box h6,
-    .cluster-detail-box p,
-    .cluster-detail-box li,
-    .cluster-detail-box span,
-    .cluster-detail-box div,
-    .cluster-detail-box strong,
-    .cluster-detail-box b {
-        color: var(--text-primary) !important;
-    }
-
-    /* ===== EFECTOS HOVER ===== */
-    .metric-card:hover {
-        transform: translateY(-2px);
-        transition: all 0.2s ease;
-        box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
-    }
-
-    .recommendation-box:hover {
-        transform: translateY(-1px);
-        transition: all 0.2s ease;
-    }
-
-    /* ===== RESPONSIVE DESIGN ===== */
-    @media (max-width: 768px) {
-        .main-header {
-            font-size: 2rem;
-        }
-        
-        .section-header {
-            font-size: 1.2rem;
-        }
-        
-        .metric-card {
-            padding: 1rem;
-        }
-    }
-
-    /* ===== SCROLLBAR PERSONALIZADO ===== */
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: var(--bg-light);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: var(--primary-light);
-        border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--primary-color);
-    }
-
-    /* ===== ESTILOS PARA TABLAS ===== */
-    .stDataFrame, .stTable {
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-    }
-
-    /* ===== ESTILOS PARA EXPANDERS ===== */
-    .streamlit-expanderHeader {
-        background-color: var(--bg-card) !important;
-        color: var(--text-primary) !important;
-        border: 1px solid var(--border-color) !important;
-        border-radius: 8px;
-    }
-
-    .streamlit-expanderContent {
-        background-color: var(--bg-card) !important;
-        color: var(--text-primary) !important;
-    }
-
-    /* ===== CONTRASTE MEJORADO PARA ACCESIBILIDAD ===== */
-    .stAlert {
-        border-radius: 8px;
-        border: 1px solid var(--border-color);
-        color: var(--text-primary) !important;
-    }
-
-    .stSuccess {
-        background-color: #f0fdf4 !important;
-        border-left: 4px solid var(--success-color) !important;
-        color: var(--text-primary) !important;
-    }
-
-    .stWarning {
-        background-color: #fffbeb !important;
-        border-left: 4px solid var(--warning-color) !important;
-        color: var(--text-primary) !important;
-    }
-
-    .stError {
-        background-color: #fef2f2 !important;
-        border-left: 4px solid var(--danger-color) !important;
-        color: var(--text-primary) !important;
-    }
-
-    .stInfo {
-        background-color: #f0f9ff !important;
-        border-left: 4px solid var(--primary-color) !important;
-        color: var(--text-primary) !important;
-    }
-
-    /* ===== ICONOS Y ELEMENTOS GRÁFICOS ===== */
-    .stProgress > div > div {
-        background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
-    }
-
-    /* ===== TEXTO GENERAL MEJORADO ===== */
-    p, li, span, div {
-        color: var(--text-primary) !important;
-    }
-
-    strong, b {
-        color: var(--text-primary) !important;
+    /* Asegurar que todo el texto en el sidebar sea visible */
+    .css-1d391kg *:not(button):not(svg):not(path),
+    .css-1y4p8pa *:not(button):not(svg):not(path) {
+        color: #1f2937 !important;
     }
 
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # Título principal con badges
@@ -1224,6 +915,7 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
 
