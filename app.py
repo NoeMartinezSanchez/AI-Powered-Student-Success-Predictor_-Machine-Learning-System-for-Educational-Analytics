@@ -34,7 +34,7 @@ st.markdown("""
         --text-secondary: #4b5563;      /* Texto secundario */
         --text-light: #6b7280;          /* Texto claro */
         --bg-light: #f8fafc;            /* Fondo claro */
-        --bg-card: #ffffff;             /* Fondo tarjetas */
+        --bg-card: #f8fafc;             /* Fondo tarjetas */
         --border-color: #e5e7eb;        /* Bordes suaves */
         --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
@@ -1195,6 +1195,7 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
 
