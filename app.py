@@ -1016,7 +1016,7 @@ def main():
         with col2:
             st.markdown("### Análisis de Componentes Principales")
             try:
-                st.image("radar_cluster_estandarizado.png", use_column_width=True, 
+                st.image("images/radar_cluster_estandarizado.png", use_column_width=True, 
                         caption="Radar con las características de los estudiantes")
             except FileNotFoundError:
                 st.warning("⚠️ No se encontró la imagen 'radar_cluster_estandarizado.png'. Asegúrate de que esté en el mismo directorio.")
@@ -1100,3 +1100,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
