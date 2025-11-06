@@ -107,7 +107,7 @@ Las instituciones de educación en línea enfrentan altas tasas de deserción si
 │  • Feature Engineering    • Data Preprocessing              │
 │  • Validation             • Scalability Optimization        │
 └─────────────────────────────────────────────────────────────┘
-```
+
 
 ### Pipeline de Procesamiento
 
@@ -126,7 +126,7 @@ Las instituciones de educación en línea enfrentan altas tasas de deserción si
 
 ### Pasos de Instalación
 
-```bash
+
 # Clonar el repositorio
 git clone https://github.com/tu-usuario/student-success-predictor.git
 cd student-success-predictor
@@ -137,11 +137,11 @@ source venv/bin/activate  # En Windows: venv\Scripts\activate
 
 # Instalar dependencias
 pip install -r requirements.txt
-```
+
 
 ### Dependencias Principales
 
-```txt
+
 streamlit>=1.28.0
 scikit-learn>=1.3.0
 pandas>=2.0.0
@@ -149,15 +149,15 @@ numpy>=1.24.0
 matplotlib>=3.7.0
 seaborn>=0.12.0
 joblib>=1.3.0
-```
+
 
 ## 💡 Uso
 
 ### Iniciar la Aplicación
 
-```bash
+
 streamlit run app.py
-```
+
 
 La aplicación se abrirá automáticamente en `http://localhost:8501`
 
@@ -316,13 +316,6 @@ Las contribuciones son bienvenidas. Por favor:
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-## 👥 Autores
-
-**Erick Delgadillo & Noé Martínez**
-
-- 📧 Email: [tu-email@example.com]
-- 💼 LinkedIn: [Tu perfil]
-- 🐙 GitHub: [@tu-usuario]
 
 ## 📚 Citación
 
