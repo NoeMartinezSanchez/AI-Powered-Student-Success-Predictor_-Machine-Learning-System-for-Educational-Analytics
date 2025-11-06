@@ -89,6 +89,8 @@ Las instituciones de educación en línea enfrentan altas tasas de deserción si
 | Cluster 2 | 65.8% | Alta disponibilidad y recursos |
 | Cluster 3 | 35.2% | Alto riesgo - múltiples barreras |
 
+![Texto alternativo](images/radar_cluster_estandarizado.png)
+
 **Brecha identificada**: 30.6 puntos porcentuales entre el cluster más y menos exitoso, evidenciando la necesidad de intervenciones diferenciadas.
 
 ## 🏗️ Arquitectura del Sistema
