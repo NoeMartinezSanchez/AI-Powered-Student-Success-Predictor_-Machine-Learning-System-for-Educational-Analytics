@@ -2,6 +2,12 @@
 
 Sistema integral de analítica educativa que predice el éxito estudiantil y genera estrategias de intervención personalizadas mediante Machine Learning
 
+![Python](https://img.shields.io/badge/Python-3.8+-blue)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.3.0-orange)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.28.0-red)
+![Pandas](https://img.shields.io/badge/Pandas-2.0.0-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 Desarrollado por Erick Delgadillo y Noé Martínez | Octubre 2025
 
 ## 📋 Tabla de Contenidos
@@ -88,6 +94,7 @@ Las instituciones de educación en línea enfrentan altas tasas de deserción si
 ## 🏗️ Arquitectura del Sistema
 
 
+```
 ┌─────────────────────────────────────────────────────────────┐
 │                  CAPA DE PRESENTACIÓN                       │
 │                   (Streamlit Web App)                       │
@@ -107,6 +114,7 @@ Las instituciones de educación en línea enfrentan altas tasas de deserción si
 │  • Feature Engineering    • Data Preprocessing              │
 │  • Validation             • Scalability Optimization        │
 └─────────────────────────────────────────────────────────────┘
+```
 
 
 ### Pipeline de Procesamiento
