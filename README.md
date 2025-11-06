@@ -2,6 +2,8 @@
 
 Sistema integral de analítica educativa que predice el éxito estudiantil y genera estrategias de intervención personalizadas mediante Machine Learning
 
+![Texto alternativo](images/Captura de pantalla 2025-11-06 153522.png)
+
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.3.0-orange)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.28.0-red)
