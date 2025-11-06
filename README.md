@@ -1,14 +1,12 @@
-🎓 AI-Powered Student Success Predictor
-Mostrar imagen
-Mostrar imagen
-Mostrar imagen
-Mostrar imagen
+#🎓 AI-Powered Student Success Predictor
 
 Sistema integral de analítica educativa que predice el éxito estudiantil y genera estrategias de intervención personalizadas mediante Machine Learning
 
 Desarrollado por Erick Delgadillo y Noé Martínez | Octubre 2025
 
-📋 Tabla de Contenidos
+---
+
+## 📋 Tabla de Contenidos
 
 Descripción del Proyecto
 Características Principales
@@ -22,6 +20,7 @@ Impacto y Casos de Uso
 Contribuciones
 Licencia
 
+---
 
 🎯 Descripción del Proyecto
 Este proyecto implementa un sistema predictivo avanzado que combina dos enfoques de Machine Learning para revolucionar la gestión educativa en instituciones de educación en línea:
