@@ -1,4 +1,3 @@
-```markdown
 # 🎓 AI-Powered Student Success Predictor
 
 Sistema integral de analítica educativa que predice el éxito estudiantil y genera estrategias de intervención personalizadas mediante Machine Learning
@@ -88,7 +87,7 @@ Las instituciones de educación en línea enfrentan altas tasas de deserción si
 
 ## 🏗️ Arquitectura del Sistema
 
-```
+
 ┌─────────────────────────────────────────────────────────────┐
 │                  CAPA DE PRESENTACIÓN                       │
 │                   (Streamlit Web App)                       │
