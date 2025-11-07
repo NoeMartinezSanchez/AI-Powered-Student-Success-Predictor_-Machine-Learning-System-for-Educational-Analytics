@@ -156,30 +156,501 @@ st.markdown("""
         background-color: white !important;
     }
 
+    /* Estilos para el sistema de recomendaciones */
+    .main-header {
+        font-size: 3rem;
+        color: #2563eb;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-weight: bold;
+        background: rgba(37, 99, 235, 0.05);
+        padding: 1rem;
+        border-radius: 15px;
+    }
+    
+    .section-header {
+        font-size: 1.5rem;
+        color: #2563eb;
+        border-bottom: 3px solid #2563eb;
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+        font-weight: 700;
+        background: rgba(37, 99, 235, 0.05);
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    
+    .recommendation-box {
+        background: rgba(16, 185, 129, 0.1) !important;
+        border: 2px solid #10b981 !important;
+        padding: 1.8rem !important;
+        border-radius: 12px !important;
+        border-left: 6px solid #34d399 !important;
+        margin: 1rem 0 !important;
+        box-shadow: 0 6px 12px rgba(16, 185, 129, 0.2) !important;
+        color: #065f46 !important;
+        font-size: 1.1rem !important;
+        line-height: 1.7 !important;
+        font-weight: 600 !important;
+    }
+    
+    .risk-high { 
+        background: rgba(239, 68, 68, 0.1) !important;
+        border: 2px solid #ef4444 !important;
+        border-left: 6px solid #f87171 !important;
+        color: #991b1b !important;
+    }
+    
+    .risk-medium { 
+        background: rgba(245, 158, 11, 0.1) !important;
+        border: 2px solid #f59e0b !important;
+        border-left: 6px solid #fbbf24 !important;
+        color: #92400e !important;
+    }
+    
+    .risk-low { 
+        background: rgba(16, 185, 129, 0.1) !important;
+        border: 2px solid #10b981 !important;
+        border-left: 6px solid #34d399 !important;
+        color: #065f46 !important;
+    }
+    
+    .feature-importance-box {
+        background: rgba(59, 130, 246, 0.1) !important;
+        border: 2px solid #3b82f6 !important;
+        padding: 1.8rem !important;
+        border-radius: 12px !important;
+        border-left: 6px solid #60a5fa !important;
+        margin: 1rem 0 !important;
+        box-shadow: 0 5px 10px rgba(59, 130, 246, 0.2) !important;
+        color: #1e40af !important;
+        font-weight: 600 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .cluster-info-box {
+        background: rgba(139, 92, 246, 0.1) !important;
+        border: 2px solid #8b5cf6 !important;
+        padding: 1.8rem !important;
+        border-radius: 12px !important;
+        border-left: 6px solid #a78bfa !important;
+        margin: 1rem 0 !important;
+        box-shadow: 0 5px 10px rgba(139, 92, 246, 0.2) !important;
+        color: #5b21b6 !important;
+        font-weight: 600 !important;
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+    }
+
 </style>
 """, unsafe_allow_html=True)
-
-
 
 # Título principal con badges
 st.markdown("""
 <div style="text-align: center;">
     <h1 class="main-header">PREDICTOR DE ÉXITO ACADÉMICO EN EDUCACIÓN EN LÍNEA</h1>
     <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-        <span class="rf-badge">Random Forest Optimizado</span>
-        <span class="cluster-badge">Análisis de Clusters</span>
+        <span style="background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); color: white; padding: 0.5rem 1.2rem; border-radius: 25px; font-size: 0.9rem; font-weight: 800; box-shadow: 0 4px 8px rgba(37, 99, 235, 0.4);">Random Forest Optimizado</span>
+        <span style="background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); color: white; padding: 0.5rem 1.2rem; border-radius: 25px; font-size: 0.9rem; font-weight: 800; box-shadow: 0 4px 8px rgba(139, 92, 246, 0.4);">Sistema de Recomendaciones</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 # Crear pestañas
-tab1, tab2 = st.tabs(["🎯 PREDICCIÓN Y ANÁLISIS", "📊 ANÁLISIS DE CLUSTERS"])
+tab1, tab2, tab3 = st.tabs(["🎯 PREDICCIÓN Y ANÁLISIS", "📊 ANÁLISIS DE CLUSTERS", "💡 RECOMENDACIONES INTELIGENTES"])
 
 with tab1:
     st.markdown("""
     **Sistema inteligente mejorado** que predice la probabilidad de éxito en educación en línea con **Random Forest optimizado** y **análisis de segmentación por clusters**.
     Precisión del **89.8%** | ROC-AUC de **0.898** | **4 clusters identificados**
     """)
+
+# ========== SISTEMA DE RECOMENDACIONES INTELIGENTES ==========
+
+def crear_sistema_reglas_expertas():
+    """
+    Sistema EXPANDIDO de reglas expertas para recomendaciones educativas
+    Basado en análisis multidimensional del estudiante
+    """
+    reglas = {
+        # ===== REGLAS TECNOLÓGICAS EXPANDIDAS =====
+        'tec_01': {
+            'nombre': 'Crisis Tecnológica Económica',
+            'condiciones': [
+                lambda estudiante: estudiante.get('score_recursos_tecnologicos', 0) <= 2,
+                lambda estudiante: estudiante.get('ingresos_hogar_numeric', 0) <= 10000
+            ],
+            'recomendacion': {
+                'categoria': 'TECNOLÓGICA',
+                'prioridad': 'ALTA',
+                'titulo': '💻 Kit de Emergencia Digital',
+                'descripcion': 'Necesitas recursos tecnológicos básicos para poder estudiar',
+                'acciones': [
+                    'Solicitar beca tecnológica urgente',
+                    'Acceso a computadoras en bibliotecas públicas',
+                    'Plan de datos móviles para estudiantes'
+                ],
+                'recursos': ['Formulario beca tecnológica', 'Lista de bibliotecas con internet'],
+                'impacto_esperado': 'Aumento del 45% en probabilidad de éxito'
+            }
+        },
+        
+        'tec_02': {
+            'nombre': 'Optimización para Dispositivo Móvil',
+            'condiciones': [
+                lambda estudiante: estudiante.get('score_recursos_tecnologicos', 0) <= 3,
+                lambda estudiante: estudiante.get('ingresos_hogar_numeric', 0) > 10000
+            ],
+            'recomendacion': {
+                'categoria': 'TECNOLÓGICA',
+                'prioridad': 'MEDIA',
+                'titulo': '📱 Guía de Estudio desde Móvil',
+                'descripcion': 'Aprende a optimizar tu aprendizaje usando principalmente smartphone',
+                'acciones': [
+                    'Descargar app oficial de la plataforma',
+                    'Configurar notificaciones de recordatorio',
+                    'Usar modo lectura para materiales'
+                ],
+                'recursos': ['Tutorial plataforma móvil', 'App de organización estudiantil'],
+                'impacto_esperado': 'Mejora del 25% en participación'
+            }
+        },
+
+        'tec_03': {
+            'nombre': 'Conectividad Crítica',
+            'condiciones': [
+                lambda estudiante: estudiante.get('score_recursos_tecnologicos', 0) <= 2,
+                lambda estudiante: estudiante.get('ingresos_hogar_numeric', 0) <= 15000,
+                lambda estudiante: estudiante.get('horas_trabajo_numeric', 0) > 20
+            ],
+            'recomendacion': {
+                'categoria': 'TECNOLÓGICA',
+                'prioridad': 'ALTA',
+                'titulo': '📶 Programa de Conectividad Urgente',
+                'descripcion': 'Acceso limitado a internet afecta tu rendimiento académico',
+                'acciones': [
+                    'Solicitar subsidio de internet educativo',
+                    'Plan de datos prioritario para clases',
+                    'Descargar materiales en horarios de menor congestión'
+                ],
+                'recursos': ['Programas de conectividad', 'Guía estudio offline'],
+                'impacto_esperado': 'Reducción del 60% en deserción por problemas técnicos'
+            }
+        },
+        
+        # ===== REGLAS ACADÉMICAS EXPANDIDAS =====
+        'aca_01': {
+            'nombre': 'Nivelación para Retorno Académico',
+            'condiciones': [
+                lambda estudiante: estudiante.get('estudios_previos_bachillerato', 0) == 0,
+                lambda estudiante: estudiante.get('edad', 0) > 25
+            ],
+            'recomendacion': {
+                'categoria': 'ACADÉMICA',
+                'prioridad': 'ALTA',
+                'titulo': '🔄 Curso de Nivelación para Adultos',
+                'descripcion': 'Programa especial para retomar estudios después de tiempo fuera',
+                'acciones': [
+                    'Inscribirse en taller de habilidades de estudio',
+                    'Unirse a grupo de apoyo entre adultos',
+                    'Recibir asesoría personalizada inicial'
+                ],
+                'recursos': ['Guía de estudio acelerada', 'Foro estudiantes adultos'],
+                'impacto_esperado': 'Incremento del 35% en retención'
+            }
+        },
+
+        'aca_02': {
+            'nombre': 'Refuerzo en Habilidades Digitales',
+            'condiciones': [
+                lambda estudiante: estudiante.get('organizacion_plataforma', 0) >= 2,  # Regular o peor
+                lambda estudiante: estudiante.get('cursos_linea_3anos', 0) == 0  # No experiencia en línea
+            ],
+            'recomendacion': {
+                'categoria': 'ACADÉMICA',
+                'prioridad': 'MEDIA',
+                'titulo': '💡 Taller de Competencias Digitales',
+                'descripcion': 'Fortalecer habilidades básicas para educación en línea',
+                'acciones': [
+                    'Completar curso básico de plataforma virtual',
+                    'Practicar con ejercicios interactivos',
+                    'Participar en sesiones de tutoría técnica'
+                ],
+                'recursos': ['Curso plataforma virtual', 'Ejercicios prácticos'],
+                'impacto_esperado': 'Mejora del 40% en manejo de plataforma'
+            }
+        },
+        
+        # ===== REGLAS DE GESTIÓN DEL TIEMPO EXPANDIDAS =====
+        'tem_01': {
+            'nombre': 'Estudiante Trabajador con Hijos',
+            'condiciones': [
+                lambda estudiante: estudiante.get('horas_trabajo_numeric', 0) > 30,
+                lambda estudiante: estudiante.get('score_responsabilidades', 0) >= 5
+            ],
+            'recomendacion': {
+                'categoria': 'TIEMPO',
+                'prioridad': 'ALTA',
+                'titulo': '⏰ Planificador Familiar Inteligente',
+                'descripcion': 'Estrategias para balancear trabajo, familia y estudio',
+                'acciones': [
+                    'Usar técnica Pomodoro (25min estudio, 5min descanso)',
+                    'Crear horario familiar compartido',
+                    'Estudiar en micro-sesiones durante el día'
+                ],
+                'recursos': ['App de planificación familiar', 'Guía estudio en pausas'],
+                'impacto_esperado': 'Aumento del 30% en tiempo efectivo de estudio'
+            }
+        },
+
+        'tem_02': {
+            'nombre': 'Sobrecarga Laboral Extrema',
+            'condiciones': [
+                lambda estudiante: estudiante.get('horas_trabajo_numeric', 0) > 40,
+                lambda estudiante: estudiante.get('ingresos_hogar_numeric', 0) <= 12000
+            ],
+            'recomendacion': {
+                'categoria': 'TIEMPO',
+                'prioridad': 'ALTA',
+                'titulo': '⚖️ Negociación de Carga Académica',
+                'descripcion': 'Estrategias para manejar carga laboral extrema',
+                'acciones': [
+                    'Solicitar reducción de carga académica inicial',
+                    'Establecer horarios de estudio realistas',
+                    'Buscar flexibilidad laboral para estudios'
+                ],
+                'recursos': ['Formato solicitud flexibilidad', 'Guía negociación académica'],
+                'impacto_esperado': 'Reducción del 50% en estrés académico'
+            }
+        },
+
+        # ===== NUEVAS REGLAS POR CLUSTER =====
+        'clu_01': {
+            'nombre': 'Cluster 3 - Apoyo Integral',
+            'condiciones': [
+                lambda estudiante: estudiante.get('cluster_asignado', None) == 3,
+                lambda estudiante: estudiante.get('probabilidad_exito', 0) < 0.5
+            ],
+            'recomendacion': {
+                'categoria': 'CLUSTER ESPECÍFICO',
+                'prioridad': 'ALTA',
+                'titulo': '🎯 Plan de Intervención para Cluster 3',
+                'descripcion': 'Estudiantes jóvenes en desventaja requieren apoyo multidimensional',
+                'acciones': [
+                    'Beca tecnológica prioritaria',
+                    'Mentoría académica intensiva',
+                    'Seguimiento semanal de progreso',
+                    'Talleres de habilidades de estudio'
+                ],
+                'recursos': ['Programa becas cluster 3', 'Asignación mentor'],
+                'impacto_esperado': 'Incremento del 55% en probabilidad de éxito'
+            }
+        },
+
+        'clu_02': {
+            'nombre': 'Cluster 1 - Balance Trabajo-Estudio',
+            'condiciones': [
+                lambda estudiante: estudiante.get('cluster_asignado', None) == 1,
+                lambda estudiante: estudiante.get('horas_trabajo_numeric', 0) > 25
+            ],
+            'recomendacion': {
+                'categoria': 'CLUSTER ESPECÍFICO',
+                'prioridad': 'MEDIA',
+                'titulo': '💼 Estrategias para Estudiantes Trabajadores',
+                'descripcion': 'Optimización de tiempo para estudiantes que trabajan',
+                'acciones': [
+                    'Planificación por bloques de tiempo',
+                    'Uso eficiente de fines de semana',
+                    'Coordinación con empleador para horarios flexibles'
+                ],
+                'recursos': ['Guía estudiante trabajador', 'Plantilla planificación'],
+                'impacto_esperado': 'Mejora del 28% en gestión del tiempo'
+            }
+        },
+
+        # ===== REGLAS DE IMPACTO ACADÉMICO =====
+        'imp_01': {
+            'nombre': 'Alto Potencial con Barreras',
+            'condiciones': [
+                lambda estudiante: estudiante.get('calificacion_final_calculada', 0) >= 8.0,
+                lambda estudiante: estudiante.get('probabilidad_exito', 0) < 0.6
+            ],
+            'recomendacion': {
+                'categoria': 'IMPACTO ACADÉMICO',
+                'prioridad': 'ALTA',
+                'titulo': '🚀 Potencial Académico No Desarrollado',
+                'descripcion': 'Tienes capacidad académica pero enfrentas barreras externas',
+                'acciones': [
+                    'Identificar y eliminar barreras específicas',
+                    'Programa de talento académico',
+                    'Búsqueda de patrocinios o becas'
+                ],
+                'recursos': ['Evaluación de barreras', 'Programa talentos'],
+                'impacto_esperado': 'Maximización del potencial académico'
+            }
+        }
+    }
+    
+    return reglas
+
+def motor_recomendaciones_inteligentes(datos_estudiante, cluster_info=None, probabilidad_exito=None):
+    """
+    Motor MEJORADO que aplica reglas expertas expandidas al perfil del estudiante
+    """
+    # Cargar el sistema EXPANDIDO de reglas
+    sistema_reglas = crear_sistema_reglas_expertas()
+    
+    # Enriquecer datos con información de cluster y probabilidad
+    datos_enriquecidos = datos_estudiante.copy()
+    if cluster_info:
+        datos_enriquecidos['cluster_asignado'] = cluster_info.get('cluster')
+    if probabilidad_exito is not None:
+        datos_enriquecidos['probabilidad_exito'] = probabilidad_exito
+    if cluster_info and 'calificacion_final_calculada' in cluster_info:
+        datos_enriquecidos['calificacion_final_calculada'] = cluster_info['calificacion_final_calculada']
+    
+    recomendaciones_encontradas = []
+    
+    # Aplicar cada regla al estudiante
+    for regla_id, regla in sistema_reglas.items():
+        cumple_condiciones = True
+        
+        # Verificar todas las condiciones de la regla
+        for condicion in regla['condiciones']:
+            try:
+                if not condicion(datos_enriquecidos):
+                    cumple_condiciones = False
+                    break
+            except Exception as e:
+                # Si hay error en alguna condición, omitir la regla
+                cumple_condiciones = False
+                break
+        
+        # Si cumple todas las condiciones, agregar la recomendación
+        if cumple_condiciones:
+            recomendacion = regla['recomendacion'].copy()
+            recomendacion['id_regla'] = regla_id
+            # Calcular puntuación de impacto
+            recomendacion['puntuacion_impacto'] = calcular_puntuacion_impacto(recomendacion, datos_enriquecidos)
+            recomendaciones_encontradas.append(recomendacion)
+    
+    # Ordenar por prioridad y puntuación de impacto
+    orden_prioridad = {'ALTA': 0, 'MEDIA': 1, 'BAJA': 2}
+    recomendaciones_encontradas.sort(key=lambda x: (orden_prioridad[x['prioridad']], -x['puntuacion_impacto']))
+    
+    return recomendaciones_encontradas
+
+def calcular_puntuacion_impacto(recomendacion, datos_estudiante):
+    """
+    Calcular métrica de impacto para priorizar recomendaciones
+    """
+    puntuacion = 0
+    
+    # Base por prioridad
+    if recomendacion['prioridad'] == 'ALTA':
+        puntuacion += 100
+    elif recomendacion['prioridad'] == 'MEDIA':
+        puntuacion += 50
+    
+    # Bonus por cluster específico
+    if 'CLUSTER' in recomendacion['categoria']:
+        puntuacion += 30
+    
+    # Bonus por impacto tecnológico
+    if 'TECNOLÓGICA' in recomendacion['categoria']:
+        if datos_estudiante.get('score_recursos_tecnologicos', 0) <= 2:
+            puntuacion += 40
+    
+    # Bonus por situación económica crítica
+    if datos_estudiante.get('ingresos_hogar_numeric', 0) <= 10000:
+        puntuacion += 35
+    
+    # Bonus por alta carga laboral
+    if datos_estudiante.get('horas_trabajo_numeric', 0) > 35:
+        puntuacion += 25
+    
+    return puntuacion
+
+def mostrar_metricas_impacto(recomendaciones, datos_estudiante, probabilidad_exito):
+    """
+    Mostrar métricas de impacto y efectividad de las recomendaciones
+    """
+    st.markdown('<div class="section-header">📈 MÉTRICAS DE IMPACTO ESPERADO</div>', unsafe_allow_html=True)
+    
+    # Calcular métricas generales
+    total_recomendaciones = len(recomendaciones)
+    recomendaciones_alta_prioridad = sum(1 for r in recomendaciones if r['prioridad'] == 'ALTA')
+    impacto_promedio = sum(r['puntuacion_impacto'] for r in recomendaciones) / total_recomendaciones if total_recomendaciones > 0 else 0
+    
+    # Mostrar métricas principales
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        st.metric("Recomendaciones Totales", total_recomendaciones)
+    
+    with col2:
+        st.metric("Prioridad ALTA", recomendaciones_alta_prioridad)
+    
+    with col3:
+        st.metric("Impacto Promedio", f"{impacto_promedio:.0f} pts")
+    
+    with col4:
+        mejora_esperada = min(probabilidad_exito + (total_recomendaciones * 0.08), 0.95)
+        st.metric("Mejora Esperada", f"{(mejora_esperada - probabilidad_exito):.1%}")
+    
+    # Gráfico de impacto por categoría
+    categorias = {}
+    for rec in recomendaciones:
+        cat = rec['categoria']
+        if cat not in categorias:
+            categorias[cat] = []
+        categorias[cat].append(rec['puntuacion_impacto'])
+    
+    if categorias:
+        fig_impacto = px.bar(
+            x=list(categorias.keys()),
+            y=[sum(scores) for scores in categorias.values()],
+            title="Impacto Acumulado por Categoría de Recomendación",
+            color=list(categorias.keys()),
+            labels={'x': 'Categoría', 'y': 'Puntuación de Impacto Acumulada'}
+        )
+        fig_impacto.update_layout(height=400, showlegend=False)
+        st.plotly_chart(fig_impacto, use_container_width=True)
+    
+    # Análisis de efectividad esperada
+    st.markdown("### 📊 Análisis de Efectividad Esperada")
+    
+    efectividad_data = []
+    for rec in recomendaciones[:5]:  # Top 5 recomendaciones
+        efectividad_data.append({
+            'Recomendación': rec['titulo'],
+            'Prioridad': rec['prioridad'],
+            'Impacto': rec['puntuacion_impacto'],
+            'Categoría': rec['categoria']
+        })
+    
+    if efectividad_data:
+        df_efectividad = pd.DataFrame(efectividad_data)
+        st.dataframe(df_efectividad, use_container_width=True, hide_index=True)
+    
+    # Resumen ejecutivo
+    st.markdown("### 🎯 Resumen Ejecutivo de Impacto")
+    
+    if total_recomendaciones > 0:
+        st.markdown(f"""
+        <div class="feature-importance-box">
+        <strong>Implementando las recomendaciones propuestas:</strong>
+        <ul>
+        <li>Se espera una <strong>mejora del {(mejora_esperada - probabilidad_exito):.1%} en probabilidad de éxito</strong></li>
+        <li><strong>{recomendaciones_alta_prioridad} intervenciones críticas</strong> requieren atención inmediata</li>
+        <li>El <strong>impacto tecnológico</strong> representa el mayor potencial de mejora</li>
+        <li>Se recomienda <strong>implementación escalonada</strong> comenzando por prioridad ALTA</li>
+        </ul>
+        </div>
+        """, unsafe_allow_html=True)
+
+# ========== FIN SISTEMA DE RECOMENDACIONES ==========
 
 # Mapeos para las variables
 MAPEOS = {
@@ -727,6 +1198,19 @@ def generar_recomendaciones_combinadas(probabilidad, datos, cluster_resultado):
 
 def main():
     """Función principal"""
+    # ========== INICIALIZAR session_state ==========
+    if 'prediccion_realizada' not in st.session_state:
+        st.session_state['prediccion_realizada'] = False
+    if 'datos_usuario' not in st.session_state:
+        st.session_state['datos_usuario'] = None
+    if 'probabilidad_exito' not in st.session_state:
+        st.session_state['probabilidad_exito'] = 0.0
+    if 'cluster_info' not in st.session_state:
+        st.session_state['cluster_info'] = None
+    if 'metadata' not in st.session_state:
+        st.session_state['metadata'] = None    
+    # ========== FIN INICIALIZACIÓN ==========
+    
     pipeline, metadata, modelo_clusters = cargar_modelos()
     
     # Crear formulario en sidebar
@@ -761,6 +1245,14 @@ def main():
                     if modelo_clusters is not None:
                         with st.spinner('🎯 Analizando segmentación por clusters...'):
                             resultado_cluster = predecir_cluster(datos_procesados, modelo_clusters)
+                
+                # ========== GUARDAR EN SESSION_STATE ==========
+                st.session_state['datos_usuario'] = datos_usuario
+                st.session_state['probabilidad_exito'] = probabilidad
+                st.session_state['cluster_info'] = resultado_cluster
+                st.session_state['prediccion_realizada'] = True
+                st.session_state['metadata'] = metadata
+                # ========== FIN GUARDAR EN SESSION_STATE ==========
                 
                 # Mostrar resultados
                 st.success("🌲 ¡Análisis completado exitosamente! (Predicción + Clusterización)")
@@ -935,14 +1427,131 @@ def main():
         </div>
         """, unsafe_allow_html=True)
 
+    # Pestaña 3: Sistema de Recomendaciones Inteligentes
+    with tab3:
+        st.markdown("""
+        <div style="text-align: center;">
+            <h1 class="main-header">💡 SISTEMA DE RECOMENDACIONES INTELIGENTES</h1>
+            <p style="color: #2563eb; font-size: 1.2rem;">
+            Recomendaciones personalizadas basadas en tu perfil único
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # VERIFICACIÓN DEL ESTADO
+        prediccion_realizada = st.session_state.get('prediccion_realizada', False)
+        datos_usuario = st.session_state.get('datos_usuario', None)
+        probabilidad_exito = st.session_state.get('probabilidad_exito', 0.0)
+        cluster_info = st.session_state.get('cluster_info', None)
+        
+        if prediccion_realizada and datos_usuario is not None:
+            try:
+                st.success("✅ **¡Predicción detectada! Generando recomendaciones personalizadas...**")
+                
+                # Mostrar resumen del perfil
+                col1, col2, col3, col4 = st.columns(4)
+                with col1:
+                    st.metric("Edad", f"{datos_usuario['edad']} años")
+                with col2:
+                    st.metric("Recursos Tecnológicos", f"{datos_usuario['score_recursos_tecnologicos']}/5")
+                with col3:
+                    st.metric("Horas Trabajo", f"{datos_usuario['horas_trabajo_numeric']}h/semana")
+                with col4:
+                    st.metric("Probabilidad Éxito", f"{probabilidad_exito:.1%}")
+                
+
+                # Generar recomendaciones MEJORADAS
+                with st.spinner('🔍 Analizando tu perfil con sistema expandido de reglas...'):
+                    recomendaciones = motor_recomendaciones_inteligentes(
+                        datos_usuario,
+                        cluster_info,
+                        probabilidad_exito
+                    )
+
+                       
+                if not recomendaciones:
+                    st.info("""
+                    🎉 **¡Excelente noticia!** 
+                    
+                    Según nuestro análisis, tu perfil no requiere intervenciones específicas en este momento. 
+                    Continúa con tu estrategia actual de estudio.
+                    """)
+                else:
+                    # Mostrar recomendaciones por categoría
+                    st.markdown(f"### 🎯 Encontramos {len(recomendaciones)} recomendaciones para ti")
+                    
+                    # Agrupar por categoría
+                    categorias = {}
+                    for rec in recomendaciones:
+                        categoria = rec['categoria']
+                        if categoria not in categorias:
+                            categorias[categoria] = []
+                        categorias[categoria].append(rec)
+                    
+                    # Mostrar por categoría
+                    for categoria, recs in categorias.items():
+                        st.markdown(f'<div class="section-header">📋 {categoria.title()}</div>', unsafe_allow_html=True)
+                        
+                        for i, rec in enumerate(recs, 1):
+                            # Determinar color según prioridad
+                            if rec['prioridad'] == 'ALTA':
+                                clase_css = "risk-high"
+                                emoji = "🔴"
+                            elif rec['prioridad'] == 'MEDIA':
+                                clase_css = "risk-medium" 
+                                emoji = "🟠"
+                            else:
+                                clase_css = "risk-low"
+                                emoji = "🟢"
+                            
+                            # Mostrar recomendación
+                            st.markdown(f"""
+                            <div class="{clase_css}">
+                                <h3>{emoji} {rec['titulo']} • Prioridad {rec['prioridad']}</h3>
+                                <p><strong>Descripción:</strong> {rec['descripcion']}</p>
+                                <p><strong>🚀 Acciones recomendadas:</strong></p>
+                            </div>
+                            """, unsafe_allow_html=True)
+                            
+                            # Mostrar acciones como lista de Streamlit
+                            for accion in rec['acciones']:
+                                st.markdown(f"• **{accion}**")
+                            
+                            # Mostrar recursos expandibles
+                            with st.expander("📚 Recursos y herramientas disponibles"):
+                                for recurso in rec['recursos']:
+                                    st.markdown(f"• **{recurso}**")
+                            
+                            st.markdown("</div>", unsafe_allow_html=True)
+                        
+                        st.markdown("---")
+                
+                # Mostrar métricas de impacto
+                mostrar_metricas_impacto(recomendaciones, datos_usuario, probabilidad_exito)
+                        
+            except Exception as e:
+                st.error(f"❌ Error al generar recomendaciones: {str(e)}")
+                st.info("💡 Intenta completar el formulario nuevamente en la pestaña de Predicción")
+        else:
+            # Mensaje cuando no hay datos
+            st.info("""
+            ## 💡 Bienvenido al Sistema de Recomendaciones Inteligentes
+            
+            **Para obtener recomendaciones personalizadas:**
+            
+            1. 👈 **Completa el formulario** en la pestaña de Predicción
+            2. 🎯 **Obtén tu análisis** de cluster y probabilidad de éxito  
+            3. 🔍 **Recibe recomendaciones** específicas para tu situación
+            
+            **Este sistema analiza:**
+            - 💻 Tus recursos tecnológicos y acceso
+            - ⏰ Tu carga de trabajo y responsabilidades
+            - 📚 Tu experiencia académica previa
+            - 🏠 Tu situación socioeconómica
+            - 🎯 Tus habilidades específicas
+            
+            **Y genera recomendaciones accionables** para maximizar tu éxito académico.
+            """)
+
 if __name__ == "__main__":
-
     main()
-
-
-
-
-
-
-
-
